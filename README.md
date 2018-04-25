@@ -1,4 +1,4 @@
-m101p
+PracticePython
 =====
 
-MongoDB for Developers
+http://www.practicepython.org/
