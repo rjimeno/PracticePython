@@ -23,15 +23,12 @@ def guess_letters(word):
     solution = "_" * len(word)
     print(">>> Welcome to Hangman!")
     while 0 < chances:
-        print(chances)
         print(solution)
         g_c = input(">>> Guess your letter: ").strip()[0].upper()
         if g_c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
             pass
         else:
             continue
-
-        print(solution)
         if g_c in tried:
             print("You tried '{}' before. Try a different one.".format(g_c))
             continue
@@ -40,23 +37,22 @@ def guess_letters(word):
         if g_c in word:
             pass
         else:
-            print(">>> '{}' is not in the word you are trying to guess.".format(g_c))
+            print("'{}' is not in the word you are trying to guess.".format(g_c))
             chances -= 1
+            print("You have {} missed guesses left!".format(chances))
             continue
         tmp = ""
         for w_c in word:
-            print(">>>>>> {}.".format(tmp))
             if w_c != g_c:
                 tmp += solution[len(tmp)]
             else:
                 tmp += w_c
         solution = tmp
     else:
-        print(">>> You did not guess all the letters with 6 or fewer guesses.")
-        print(">>> The word was: {}.".format(word))
+        print("You did not guess all the letters with 6 or fewer guesses.")
+        print("The word was: {}.".format(word))
         return 0
-    print(solution)
-    print(">>> Congratulations, you got the word!")
+    print("Congratulations, you got the word!")
     return 1
 
 # Main
@@ -72,7 +68,7 @@ while LINE:
 while True:
     j = get_random_word_from(WORDS)
     guess_letters(WORDS[j])
-    if 'Y' == input("Would you like to play again? [YN]: ").strip()[0].upper():
+    if 'Y' == input(">>> Would you like to play again? [YN]: ").strip()[0].upper():
         continue
     else:
         break
