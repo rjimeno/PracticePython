@@ -1,14 +1,38 @@
 #!/usr/bin/env python3
 
-bd=dict()
-bd['BF'] = '01/17/1706'
-bd['GH'] = '02/28/1817'
+"""
+Defines a single function birthday_dictionary() that takes no output and performs some
+standard-input & standard-output operations.
+"""
 
-print("Welcome to the birdthday dictionary. We know the birdhdays of:")
+def birthday_dictionary():
+    '''
+    Takes no external input (as everything is defined internally).
+    Final output is a message displaying the birthday of someone in the included database.
+    Side effect is interaction with the user (input & output) to help him select
+    a person's name he might be interested in finding out the birthday.
+    '''
+    b_d = dict()
+    b_d['BF'] = '01/17/1706'
+    b_d['GW'] = '02/28/1817'
 
-for name in bd.keys():
-    print(name)
+    print("Welcome to the birdthday dictionary. We know the birdhdays of:")
 
-name = input("Who's birthday do you want to look up?: ")
+    for name in b_d.keys():
+        print(name)
+    while True:
+        name = input("Who's birthday do you want to look up?: ")
+        if name in b_d.keys():
+            break
+        else:
+            print("Ups, that not one of the birthdays I know!")
+            print("Please check you typed the name exactly as it appears above.")
+            continue
 
-print(name + "'s birthday is " + bd[name])
+    print(name + "'s birthday is " + b_d[name])
+
+if __name__ == '__main__':
+    print('birthday_dictionry() is being run by itself.')
+    birthday_dictionary()
+else:
+    print('birthday_dictionary() is being imported from another module.')
