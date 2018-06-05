@@ -18,14 +18,14 @@ def birthday_dictionary():
 
     print("Welcome to the birdthday dictionary. We know the birdhdays of:")
 
-    for name in b_d.keys():
+    for name in b_d:
         print(name)
     while True:
         name = input("Who's birthday do you want to look up?: ")
         if name in b_d.keys():
             break
         else:
-            print("Ups, that not one of the birthdays I know!")
+            print("Ups, that's not one of the birthdays I know!")
             print("Please check you typed the name exactly as it appears above.")
             continue
 
