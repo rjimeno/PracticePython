@@ -7,6 +7,8 @@ BIG THANKS for that file. I the author believes my copying the file is wrong,
 I'll delete the file from muy repository.
 """
 import json
+from bokeh.plotting import figure, show, output_file
+
 
 
 def load(file_name):
@@ -59,6 +61,14 @@ def simple_histogram(b_d):
     print("}\n")
 
 if __name__ == '__main__':
+    output_file("plot.html")
+    x_categories = ["a", "b", "c", "d", "e"]
+    x = ["a", "d", "e"]
+    y = [4, 5, 6]
+
+    p = figure(x_range=x_categories)
+    p.vbar(x=x, top=y, width=0.5)
+    exit()
     print('Program is being run by itself.')
     BIRTHDAY_OF = load("celeb-birthdays.json")
     dump(BIRTHDAY_OF, "celeb-birthdays-output.json")
