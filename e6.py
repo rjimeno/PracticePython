@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 
-print("Give me a string and I will check if it is a palindrome: ")
-s = input("Type here: ")
+# CHANGLOG:
+# + 20230902:
+# - Created and used a reusable function.
 
-for i in range(0, int(len(s)/2)):
-    l = len(s)
-    if s[i] != s[l-1-i]:
+def is_palindrome(s: str) -> bool:
+    if s == s[::-1]:
+        return True
+    return False
+
+if "__main__" == __name__:
+    print("Give me a string and I will check if it is a palindrome: ")
+    s = input("Type here: ")
+    if is_palindrome(s):
+        print("A palindrome!")
+    else:
         print("Not a palindrome.")
-        exit(1)
-
-print("A palindrome!")
-exit(0)

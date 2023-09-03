@@ -12,9 +12,8 @@ if r.status_code != OK:
 
 soup = BeautifulSoup(r.text, "html.parser")
 
-content_sections = soup.find_all(class_="content-section")
+content_sections = soup.find_all(class_="main-content")  # Used to be "content-section"
 
 for t in content_sections:
-    print(t.p)
+    #print(t.p)
     print()
-

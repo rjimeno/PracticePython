@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 
+# Changelog:
+# + 20230902:
+# - Added type hints.
+# - import sys to prevent the IDE (or linter) from warning.
+
+from numbers import Number
+import sys
+
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 default_limit = 5
 for x in a:
@@ -10,7 +18,7 @@ for x in a:
 
 # 1.Instead of printing the elements one by one, make a new list that has all
 # the elements less than 5 from this list in it and print out this new list.
-def list_less_than( input_array, limit=default_limit):
+def list_less_than(input_array: list, limit: Number=default_limit) -> list:
     """
     >>> list_less_than([])
     []
@@ -27,7 +35,7 @@ def list_less_than( input_array, limit=default_limit):
     return l
 
 # 2. Write this in one line of Python.
-def list_less_than_oneliner(i_a, l=default_limit):
+def list_less_than_oneliner(i_a: list, l: Number=default_limit) -> list:
     """
     >>> list_less_than([])
     []
@@ -55,3 +63,4 @@ print(list_less_than_oneliner(a, limit))
 if '__main__' == __name__:
     import doctest
     doctest.testmod()
+    
