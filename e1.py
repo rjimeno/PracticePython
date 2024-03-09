@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
 
-import datetime
+import datetime as dt
 
-name = input("What's your name?: ")
-age = int(input("What's your age?: "))
+print("This program calculates the year when you will become 100-year old.")
 
-todayYear=int(datetime.datetime.now().strftime("%Y"))
+while True:
+    name = input("What's your name?: ")
+    if 0 < len(name):
+        break
+while True:
+    age_str = input("What's your age in years?: ")
+    try:
+        age_int = int(age_str)
+    except ValueError:
+        continue
+    if 0 <= age_int:
+        break
 
-togo=100-int(age)
+today_year=int(dt.datetime.now().strftime("%Y"))
 
-print("{}, you will become 100 years old in the year {}.".format(name, todayYear + togo))
+left=100-int(age_int)
 
-
-
+print(f"{name}, you will become 100 years old in the year {today_year + left}.")
