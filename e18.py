@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-# CHANGELOG:
+# Changelog:
+# + 20240310:
+# - Reorganized documentation.
 # + 20230902:
 # - Created.
 
@@ -15,9 +17,6 @@ guessed correctly in the wrong place is a “bull.” Every time the user makes 
 how many “cows” and “bulls” they have. Once the user guesses the correct number, the game is
 over. Keep track of the number of guesses the user makes throughout teh game and tell the user at
 the end.
-
-Additional information (from https://en.wikipedia.org/wiki/Bulls_and_Cows):
-- The digits must be all different.
 """
 
 import random
@@ -58,6 +57,10 @@ def bulls(s: str, sn: str = SECRET_NUMBER) -> int:
     return b
 
 def game(sn: str = SECRET_NUMBER) -> None:
+    """
+    Additional information (from https://en.wikipedia.org/wiki/Bulls_and_Cows):
+    - The digits must be all different.
+    """
     print("Welcome to the Cows and Bulls Game!") 
     counter = 0
     while True:
