@@ -2,10 +2,11 @@
 
 import sys
 
-primes = [int(line.rstrip()) for line in open(sys.argv[1])]
+primes = set([int(line.rstrip()) for line in open(sys.argv[1])])
 
-happy = [int(line.rstrip()) for line in open(sys.argv[2])]
+happy = set([int(line.rstrip()) for line in open(sys.argv[2])])
 
-happyAndPrime = [p for p in primes if p in happy]
+happy_and_prime = primes.intersection(happy)  # [p for p in primes if p in happy]
 
-print(happyAndPrime)
+for i in happy_and_prime:
+    print(i)
