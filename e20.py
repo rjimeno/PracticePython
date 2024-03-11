@@ -55,6 +55,7 @@ def list_has_3(ordered_list: list[int], number: int) -> bool:
             return False
 
 def list_has(ordered_list, number, impl=2):
+    """ Returns True if 'number' is in 'ordered_list'. """
     if impl == 1:
         list_has_1(ordered_list, number)
     elif impl == 2:
