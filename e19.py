@@ -3,7 +3,7 @@
 # Changelog:
 # + 20230310:
 # - Modified (again) because the source changed and didn't work anymore.
-@ - https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+# - https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
 import requests
 import sys
