@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 This program used as its original source of data the file available here:
-https://raw.githubusercontent.com/alebelcor/celeb-birthdays/master/output/celeb-birthdays.json
+https://www.practicepython.org/exercise/2017/02/06/34-birthday-json.html
 
+https://raw.githubusercontent.com/alebelcor/celeb-birthdays/master/output/celeb-birthdays.json
 BIG THANKS for that file. I the author believes my copying the file is wrong,
 I'll delete the file from muy repository.
 

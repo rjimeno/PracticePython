@@ -5,9 +5,10 @@ https://raw.githubusercontent.com/alebelcor/celeb-birthdays/master/output/celeb-
 
 BIG THANKS for that file. I the author believes my copying the file is wrong,
 I'll delete the file from muy repository.
+
+Obs.: Lack of unit tests.
 """
 import json
-#from collections import Counter
 
 def load_return_histogram(file_name):
     '''
@@ -17,7 +18,7 @@ def load_return_histogram(file_name):
     the data structure that will be returned.
     '''
     monthly_histogram = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding='utf-8') as file:
         date = json.load(file)
     for m_d in date:
         tmp = m_d.split('-')
@@ -28,26 +29,16 @@ def load_return_histogram(file_name):
 
 def dump_count(data):
     'Produces JSON output.'
-
+    months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ]
     print("{")
-    for month in MONTH:
-        print("    '{}': '{}',".format(MONTH[month], data[month]))
+    for i, month in enumerate(months):
+        print(f"    '{month}': '{data[i]}',")
     print("}")
 
 if __name__ == '__main__':
-    MONTH = {}
-    MONTH[0] = 'January'
-    MONTH[1] = 'February'
-    MONTH[2] = 'March'
-    MONTH[3] = 'April'
-    MONTH[4] = 'May'
-    MONTH[5] = 'June'
-    MONTH[6] = 'July'
-    MONTH[7] = 'August'
-    MONTH[8] = 'September'
-    MONTH[9] = 'October'
-    MONTH[10] = 'November'
-    MONTH[11] = 'December'
     BIRTHDAY_OF = load_return_histogram("celeb-birthdays.json")
     dump_count(BIRTHDAY_OF)
 else:
