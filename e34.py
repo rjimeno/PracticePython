@@ -5,6 +5,8 @@ https://raw.githubusercontent.com/alebelcor/celeb-birthdays/master/output/celeb-
 
 BIG THANKS for that file. I the author believes my copying the file is wrong,
 I'll delete the file from muy repository.
+
+Obs.: Lack of unit tests.
 """
 import json
 
@@ -17,7 +19,7 @@ def load(file_name):
     the data structure that will be returned.
     '''
     data = {}
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding='utf-8') as file:
         date = json.load(file)
     for m_d in date:
         for name in date[m_d]:
@@ -34,11 +36,11 @@ def dump(data, file_name):
     Side effect: a file is created.
     '''
     try:
-        with open(file_name, "w") as file:
+        with open(file_name, "w", encoding='utf-8') as file:
             json.dump(data, file)
         return True
     except (OSError, IOError) as exception:
-        print("There was a problem dumping data to a file: {}.".format(exception))
+        print(f"There was a problem dumping data to a file: {exception}.")
     return False
 
 
@@ -59,10 +61,8 @@ def better_birthday_dictionary(b_d):
         name = input("Who's birthday do you want to look up?: ")
         if name in b_d.keys():
             break
-        else:
-            print("Ups, that's not one of the birthdays I know!")
-            print("Please check you typed the name exactly as it appears above.")
-            continue
+        print("Ups, that's not one of the birthdays I know!")
+        print("Please check you typed the name exactly as it appears above.")
 
     print(name + "'s birthday is " + b_d[name])
 

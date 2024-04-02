@@ -2,6 +2,7 @@
 
 """
 Guess Letters http://www.practicepython.org/exercise/2017/01/02/31-guess-letters.htmll
+Obs.: Lack of unit tests.
 """
 
 def guess_letters(word):

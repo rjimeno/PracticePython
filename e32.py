@@ -2,8 +2,20 @@
 
 """
 Hangman http://www.practicepython.org/exercise/2017/01/10/32-hangman.html
+Obs.: Lack of unit tests.
 """
 import random
+
+def load():
+    """"
+    Loads the sords from swepods.txt into the global words list.
+    """
+    with open('sowpods.txt', 'r', encoding='utf-8') as f:
+        line = f.readline()
+        while line:
+            word = line.strip()
+            words.append(word)
+            line = f.readline()
 
 def get_random_word_from(words):
     """
@@ -24,22 +36,23 @@ def guess_letters(word):
     print(">>> Welcome to Hangman!")
     while 0 < chances:
         print(solution)
+        if word == solution:
+            break
         g_c = input(">>> Guess your letter: ").strip()[0].upper()
         if g_c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
             pass
         else:
             continue
         if g_c in tried:
-            print("You tried '{}' before. Try a different one.".format(g_c))
+            print(f"You tried '{g_c}' before. Try a different one.")
             continue
-        else:
-            tried = tried + g_c
+        tried = tried + g_c
         if g_c in word:
             pass
         else:
-            print("'{}' is not in the word you are trying to guess.".format(g_c))
+            print(f"'{g_c}' is not in the word you are trying to guess.")
             chances -= 1
-            print("You have {} missed guesses left!".format(chances))
+            print(f"You have {chances} missed guesses left!")
             continue
         tmp = ""
         for w_c in word:
@@ -49,26 +62,20 @@ def guess_letters(word):
                 tmp += w_c
         solution = tmp
     else:
-        print("You did not guess all the letters with 6 or fewer guesses.")
-        print("The word was: {}.".format(word))
+        print("You did not guess all the letters with 6 or fewer wrong guesses.")
+        print(f"The word was: {word}.")
         return 0
     print("Congratulations, you got the word!")
     return 1
 
 # Main
 
-WORDS = []
-F = open('sowpods.txt', 'r')
-LINE = F.readline()
-while LINE:
-    WORD = LINE.strip()
-    WORDS.append(WORD)
-    LINE = F.readline()
+words: list[str] = []
+load()
 
 while True:
-    j = get_random_word_from(WORDS)
-    guess_letters(WORDS[j])
+    j = get_random_word_from(words)
+    guess_letters(words[j])
     if 'Y' == input(">>> Would you like to play again? [YN]: ").strip()[0].upper():
         continue
-    else:
-        break
+    break

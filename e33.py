@@ -3,6 +3,7 @@
 """
 Defines a single function birthday_dictionary() that takes no output and performs some
 standard-input & standard-output operations.
+Obs.: Lack of unit tests.
 """
 
 def birthday_dictionary():
@@ -12,7 +13,7 @@ def birthday_dictionary():
     Side effect is interaction with the user (input & output) to help him select
     a person's name he might be interested in finding out the birthday.
     '''
-    b_d = dict()
+    b_d = {}
     b_d['BF'] = '01/17/1706'
     b_d['GW'] = '02/28/1817'
 
@@ -22,12 +23,10 @@ def birthday_dictionary():
         print(name)
     while True:
         name = input("Who's birthday do you want to look up?: ")
-        if name in b_d.keys():
+        if name in b_d:
             break
-        else:
-            print("Ups, that's not one of the birthdays I know!")
-            print("Please check you typed the name exactly as it appears above.")
-            continue
+        print("Ups, that's not one of the birthdays I know!")
+        print("Please check you typed the name exactly as it appears above.")
 
     print(name + "'s birthday is " + b_d[name])
 
